@@ -14,5 +14,12 @@
   "bugs": {
     "url": "https://github.com/padmajapinnika/myFlix-client/issues"
   },
-  "homepage": "https://github.com/padmajapinnika/myFlix-client#readme"
+  "homepage": "https://github.com/padmajapinnika/myFlix-client#readme",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.14.1"
+  }
 }

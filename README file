@@ -1,0 +1,70 @@
+# MyFlix Client
+
+This repository contains the front-end client for the **MyFlix** application. It is a web application that allows users to browse movies, manage their profiles, and maintain a list of their favorite films. The app is built using modern web technologies, including **React** and **Parcel** for fast development and bundling.
+
+---
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [How to Run the Project](#how-to-run-the-project)
+- [Testing the App](#testing-the-app)
+- [Updating the README](#updating-the-readme)
+- [Development and Contributions](#development-and-contributions)
+- [License](#license)
+
+---
+
+## Project Overview
+
+The **MyFlix Client** serves as the front-end of the **MyFlix** application. It provides an intuitive user interface that allows users to:
+
+- View a catalog of movies.
+- Register and log into their accounts.
+- Add or remove movies from their list of favorites.
+- Update user profile information.
+
+---
+
+## Technologies Used
+
+- **React** – For building dynamic and reusable UI components.
+- **Parcel** – A fast web bundler for compiling the project efficiently.
+- **Node.js** – A runtime environment for executing JavaScript.
+- **Express** – A web framework for handling API requests on the backend.
+- **Bootstrap** – A front-end framework for responsive design.
+- **React Router** – For handling navigation between different views.
+- **React Hooks** – For state management and lifecycle handling.
+
+---
+
+## Installation
+
+Follow these steps to set up the **MyFlix Client** on your local machine:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/myFlix-client.git
+
+Navigate to the Project Directory
+cd myFlix-client
+Install Dependencies
+npm install
+
+How to Run the Project
+To start the development server, follow these steps:
+1.Ensure that the repository is properly configured and dependencies are installed.
+2.Run the following command:
+parcel src/index.html
+3.Open the provided local URL (e.g., http://localhost:1234) in your browser to see the application in action.
+
+Testing the App
+To test the project:
+1.Make sure the Parcel bundler is installed.
+2.Run the app using:
+parcel src/index.html
+3.Verify that all views and features load correctly.
+```
