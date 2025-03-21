@@ -34,11 +34,13 @@ export const MainView = () => {
 
   
     const [selectedMovie, setSelectedMovie] = useState(null);
-  
+    const handleBackClick = () => {
+        setSelectedMovie(null); // Reset selected movie to null to go back to the movie list
+      };
     return (
       <div>
         {selectedMovie ? (
-          <MovieView movie={selectedMovie} />
+          <MovieView movie={selectedMovie} onBackClick={handleBackClick}/>
         ) : (
           <div>
             {movies.map((movie) => (
