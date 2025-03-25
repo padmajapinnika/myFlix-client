@@ -8,7 +8,7 @@ export const MovieView = ({ movie, onBackClick }) => {
         <p><strong>Director:</strong> {movie.director}</p>
         <p><strong>Genre:</strong> {movie.genre || 'Not Available'}</p>
         <p><strong>Release Year:</strong> {movie.releaseYear|| 'Not Available'}</p>
-        <button onClick={onBackClick}>Back to Movie List</button>       <button onClick={onBackClick}>Back to Movie List</button>
+        <button onClick={onBackClick}>Back to Movie List</button>
       </div>
     );
   };

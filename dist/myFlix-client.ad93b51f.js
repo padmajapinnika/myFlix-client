@@ -156,11 +156,11 @@
       });
     }
   }
-})({"iAhG2":[function(require,module,exports,__globalThis) {
+})({"j0FP0":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1234;
+var HMR_SERVER_PORT = 58094;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -19617,15 +19617,6 @@ const MovieView = ({ movie, onBackClick })=>{
                 fileName: "src/Components/movie-view/movie-view.jsx",
                 lineNumber: 11,
                 columnNumber: 9
-            }, undefined),
-            "       ",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: onBackClick,
-                children: "Back to Movie List"
-            }, void 0, false, {
-                fileName: "src/Components/movie-view/movie-view.jsx",
-                lineNumber: 11,
-                columnNumber: 73
             }, undefined)
         ]
     }, void 0, true, {
@@ -19657,6 +19648,6 @@ $RefreshReg$(_c, "MovieView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kdJbw","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bs0NJ","prop-types":"GNqOQ"}]},["iAhG2","gYcKb"], "gYcKb", "parcelRequireaec4", null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kdJbw","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bs0NJ","prop-types":"GNqOQ"}]},["j0FP0","gYcKb"], "gYcKb", "parcelRequireaec4", null, null, "http://localhost:58094")
 
 //# sourceMappingURL=myFlix-client.ad93b51f.js.map
