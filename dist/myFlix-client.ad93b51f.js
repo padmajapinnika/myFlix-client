@@ -156,11 +156,11 @@
       });
     }
   }
-})({"j0FP0":[function(require,module,exports,__globalThis) {
+})({"iAhG2":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 58094;
+var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -16332,9 +16332,9 @@ const MainView = ()=>{
     }, []);
     if (selectedMovie) {
         let similarMovies = movies.filter((movie)=>{
-            return movie.genre.name === selectedMovie.genre.name;
+            return movie.genre.name === selectedMovie.genre.name && movie.title !== selectedMovie.title;
         });
-        console.log("Similar Movies:", similarMovies);
+        console.log(similarMovies);
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -16342,35 +16342,33 @@ const MainView = ()=>{
                     onBackClick: ()=>setSelectedMovie(null)
                 }, void 0, false, {
                     fileName: "src/Components/MainView/main-view.jsx",
-                    lineNumber: 26,
+                    lineNumber: 29,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "src/Components/MainView/main-view.jsx",
-                    lineNumber: 29,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     children: "Similar Movies"
                 }, void 0, false, {
                     fileName: "src/Components/MainView/main-view.jsx",
-                    lineNumber: 30,
+                    lineNumber: 34,
                     columnNumber: 17
                 }, undefined),
                 similarMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                         movie: movie,
-                        onMovieClick: (newSelection)=>{
-                            setSelectedMovie(newSelection);
-                        }
+                        onMovieClick: (newSelection)=>setSelectedMovie(newSelection)
                     }, movie._id, false, {
                         fileName: "src/Components/MainView/main-view.jsx",
-                        lineNumber: 32,
+                        lineNumber: 37,
                         columnNumber: 21
                     }, undefined))
             ]
         }, void 0, true, {
             fileName: "src/Components/MainView/main-view.jsx",
-            lineNumber: 25,
+            lineNumber: 27,
             columnNumber: 13
         }, undefined);
     }
@@ -16378,7 +16376,7 @@ const MainView = ()=>{
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/Components/MainView/main-view.jsx",
-        lineNumber: 45,
+        lineNumber: 48,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16389,12 +16387,12 @@ const MainView = ()=>{
                 }
             }, movie._id, false, {
                 fileName: "src/Components/MainView/main-view.jsx",
-                lineNumber: 51,
+                lineNumber: 54,
                 columnNumber: 17
             }, undefined))
     }, void 0, false, {
         fileName: "src/Components/MainView/main-view.jsx",
-        lineNumber: 49,
+        lineNumber: 52,
         columnNumber: 9
     }, undefined);
 };
@@ -16443,7 +16441,7 @@ MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
-    onClick: (0, _propTypesDefault.default).func.isRequired
+    onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieCard");
@@ -19648,6 +19646,6 @@ $RefreshReg$(_c, "MovieView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kdJbw","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bs0NJ","prop-types":"GNqOQ"}]},["j0FP0","gYcKb"], "gYcKb", "parcelRequireaec4", null, null, "http://localhost:58094")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kdJbw","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bs0NJ","prop-types":"GNqOQ"}]},["iAhG2","gYcKb"], "gYcKb", "parcelRequireaec4", null, null, "http://localhost:1234")
 
 //# sourceMappingURL=myFlix-client.ad93b51f.js.map
