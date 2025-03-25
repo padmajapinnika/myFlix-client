@@ -16332,7 +16332,7 @@ const MainView = ()=>{
     }, []);
     if (selectedMovie) {
         let similarMovies = movies.filter((movie)=>{
-            movie.genre.name === selectedMovie.genre.name && (movie.title, selectedMovie.title);
+            return movie.genre === selectedMovie.genre && movie.title !== selectedMovie.title;
         });
         console.log(similarMovies);
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
