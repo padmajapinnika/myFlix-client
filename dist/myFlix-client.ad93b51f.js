@@ -156,11 +156,11 @@
       });
     }
   }
-})({"iAhG2":[function(require,module,exports,__globalThis) {
+})({"fKOaJ":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1234;
+var HMR_SERVER_PORT = 64104;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -19646,6 +19646,6 @@ $RefreshReg$(_c, "MovieView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kdJbw","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bs0NJ","prop-types":"GNqOQ"}]},["iAhG2","gYcKb"], "gYcKb", "parcelRequireaec4", null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kdJbw","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bs0NJ","prop-types":"GNqOQ"}]},["fKOaJ","gYcKb"], "gYcKb", "parcelRequireaec4", null, null, "http://localhost:64104")
 
 //# sourceMappingURL=myFlix-client.ad93b51f.js.map
