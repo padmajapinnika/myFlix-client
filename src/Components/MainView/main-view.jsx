@@ -3,10 +3,10 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { useState, useEffect } from "react";
+import Row from "react-bootstrap/Row";
+import { Col, Button } from "react-bootstrap";
 
 export const MainView = () => {
-    const storedUser = localStorage.getItem("user");
-    const storedToken = localStorage.getItem("token");
     const [user, setUser] = useState('');
     const [token, setToken] = useState('');
     const [movies, setMovies] = useState('');
@@ -43,11 +43,13 @@ export const MainView = () => {
     
     if (!user) {
         return (
-          <>
+            <Row className="justify-content-md-center">
+                <Col md={5}>
             <LoginView onLoggedIn={handleLoggedIn} />
             <p>or</p>
             <SignupView />
-          </>
+            </Col>
+            </Row>
         );
       }
       if (error) {
@@ -61,24 +63,28 @@ export const MainView = () => {
                 && movie.title !== selectedMovie.title;
         })
 
-    console.log(similarMovies);
+        console.log(similarMovies);
         return (
-            <div>
-                <MovieView
-                    movie={selectedMovie}
-                    onBackClick={() => setSelectedMovie(null)} // Clicking back will show the movie list again
-                />
-                <hr />
-                <h2>Similar Movies</h2>
-                {/* Display similar movies to the selected movie */}
-                {similarMovies.map((movie) => (
-                    <MovieCard
-                    key={movie._id}
-                        movie={movie}
-                        onMovieClick={(newSelection) => setSelectedMovie(newSelection)} // Set selected movie
+            <Row className="justify-content-md-center">
+                <Col md={8}>
+                    <MovieView
+                        movie={selectedMovie}
+                        onBackClick={() => setSelectedMovie(null)} // Clicking back will show the movie list again
                     />
-                ))}
-            </div>
+                    <hr />
+                    <h2>Similar Movies</h2>
+                    <Row className="justify-content-md-center">
+                        {similarMovies.map((movie) => (
+                            <Col className="mb-5" key={movie._id} lg={3} md={4} sm={12}>
+                                <MovieCard
+                                    movie={movie}
+                                    onMovieClick={(newSelection) => setSelectedMovie(newSelection)}
+                                />
+                            </Col>
+                        ))}
+                    </Row>
+                </Col>
+            </Row>
         );
     }
 
@@ -87,18 +93,24 @@ export const MainView = () => {
     }
 
     return (
-        <div>
-            <button onClick={handleLogout}>Logout</button>
+        <Row>
+             
+             <Col sm={12}>
             <h2>Movie List</h2>
+        </Col>
             {movies.map((movie) => (
+                 <Col className="mb-5" key={movie._id} lg={2} md={3} sm={12}>
                 <MovieCard
-                    key={movie._id}
                     movie={movie}
                     onMovieClick={(newSelection) => {
                         setSelectedMovie(newSelection);
                     }}
                 />
+                </Col>
             ))}
-        </div>
+             <Col sm={12}>
+            <button onClick={handleLogout}>Logout</button>
+            </Col>
+        </Row>
     );
-};
+}
