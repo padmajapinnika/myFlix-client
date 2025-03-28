@@ -1,9 +1,18 @@
 import PropTypes from 'prop-types';
+import { Button, Card } from "react-bootstrap";
+
 export const MovieCard = ({ movie, onMovieClick }) => {
     return (
-        <div onClick={() => onMovieClick(movie)}>
-        <h3>{movie.title}</h3>
-    </div>
+      <Card className="h-100">
+      <Card.Img variant="top" src={movie.imagePath} className="w-100" />
+      <Card.Body>
+          <Card.Title>{movie.title}</Card.Title>
+          <Card.Text>{movie.director.name}</Card.Text>
+          <Button onClick={() => onMovieClick(movie)} variant="link">
+              View Details
+              </Button>
+         </Card.Body>
+    </Card>
     );
   };
   MovieCard.propTypes = {
@@ -12,3 +21,4 @@ export const MovieCard = ({ movie, onMovieClick }) => {
     }).isRequired, // Ensures that movie prop is passed
     onMovieClick: PropTypes.func.isRequired, // Ensures that onClick is a function
   };
+

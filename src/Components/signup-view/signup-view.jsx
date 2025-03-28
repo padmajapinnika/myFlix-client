@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from "react-bootstrap";
 
 export const SignupView = () => {
   const urlAPI = "https://movie-api-padma-7528be21ca05.herokuapp.com";
@@ -36,44 +37,46 @@ export const SignupView = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <Form.Label>
         Username:
-        <input
+        </Form.Label>
+        <Form.Control
           type="text"
           value={Username}
           onChange={(e) => setUsername(e.target.value)}
           required
           minLength="3"
         />
-      </label>
-      <label>
+      <Form.Label>
         password:
-        <input
+        </Form.Label>
+        <Form.Control
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
-      <label>
+      
+      <Form.Label>
         Email:
-        <input
+        </Form.Label>
+        <Form.Control
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </label>
-      <label>
+    
+    <Form.Label>
         Birthday:
-        <input
+        <Form.Control
           type="date"
           value={Birthday}
           onChange={(e) => setBirthday(e.target.value)}
           required
         />
-      </label>
-      <button type="submit">Sign Up</button>
+      </Form.Label>
+      <button variant="primary" type="submit">Sign Up</button>
     </form>
   );
 };
