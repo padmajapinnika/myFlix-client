@@ -4,7 +4,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
-import { Col, Button } from "react-bootstrap";
+import { Col} from "react-bootstrap";
 
 export const MainView = () => {
     const [user, setUser] = useState('');
@@ -59,7 +59,7 @@ export const MainView = () => {
 
     if (selectedMovie) {
         let similarMovies = movies.filter((movie) => {
-            return  movie.genre === selectedMovie.genre
+            return  movie.genre.name === selectedMovie.genre.name
                 && movie.title !== selectedMovie.title;
         })
 
@@ -109,7 +109,7 @@ export const MainView = () => {
                 </Col>
             ))}
              <Col sm={12}>
-            <button onClick={handleLogout}>Logout</button>
+            <button variant="primary" onClick={handleLogout}>Logout</button>
             </Col>
         </Row>
     );

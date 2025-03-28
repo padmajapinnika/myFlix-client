@@ -9,9 +9,9 @@ export const MovieCard = ({ movie, onMovieClick }) => {
           <Card.Title>{movie.title}</Card.Title>
           <Card.Text>{movie.director.name}</Card.Text>
           <Button onClick={() => onMovieClick(movie)} variant="link">
-              Open for Movie🎥 details😊
-          </Button>
-      </Card.Body>
+              View Details
+              </Button>
+         </Card.Body>
     </Card>
     );
   };
