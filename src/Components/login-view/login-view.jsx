@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Form,Button } from "react-bootstrap";
 export const LoginView = ({ onLoggedIn }) => {
   const url="https://movie-api-padma-7528be21ca05.herokuapp.com";
   const [username, setUsername] = useState("");
@@ -8,7 +8,7 @@ export const LoginView = ({ onLoggedIn }) => {
         e.preventDefault();
         const data = {
           Username: username,
-         password: password,
+          password: password,
           };
           console.log(data);
        
@@ -36,27 +36,31 @@ export const LoginView = ({ onLoggedIn }) => {
 
       return (
         <form onSubmit={handleSubmit}>
-          <label>
+           <Form.Group controlId="formUsername">
+          <Form.Label>
             Username:
-            <input
+            </Form.Label>
+            <Form.Control
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               minLength="5"
               required
             />
-          </label>
-          <label>
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+            <Form.Label>
             Password:
-            <input
+            </Form.Label>
+            <Form.Control
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               minLength="5"
               required
             />
-          </label>
-          <button type="submit">Submit</button>
+            </Form.Group>
+          <button variant="primary" type="submit">Submit</button>
         </form>
       );
     };
