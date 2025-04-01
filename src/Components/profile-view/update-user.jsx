@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 
-const UpdateUser = ({ url, user, token }) => {
+const UpdateUser = ({ urlAPI, user, token }) => {
 
     const [userData, setUser] = useState(user);
     console.log(userData.Username);
@@ -30,7 +30,7 @@ const UpdateUser = ({ url, user, token }) => {
 
         console.log(user?.Username);
 
-        fetch(`${url}/users/${username}`, {
+        fetch(`${urlAPI}/users/${username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -92,7 +92,7 @@ const UpdateUser = ({ url, user, token }) => {
                 <Row>
                     <Col><Button variant="primary" type="submit">Update Profile</Button></Col>
                     <Col><Button variant="secondary" type="button" onClick={() => {
-                        fetch(url + "/users/" + user.Username, {
+                        fetch(urlAPI + "/users/" + user.Username, {
                             method: "DELETE",
                             headers: {
                                 Authorization: `Bearer ${token}`,

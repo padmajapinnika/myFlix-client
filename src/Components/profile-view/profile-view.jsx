@@ -3,7 +3,7 @@ import UserInfo from './user-info';
 import FavoriteMovies from './favourite-movies';
 import UpdateUser from './update-user';
 
-const ProfileView = ({ url, user, token, movies }) => {
+const ProfileView = ({ urlAPI, user, token, movies }) => {
 
     return (
         <>
@@ -12,13 +12,13 @@ const ProfileView = ({ url, user, token, movies }) => {
                 email={user.email}
             />
             <FavoriteMovies
-                url={url}
+                urlAPI={urlAPI}
                 user={user}
                 token={token}
                 movies={movies}
             />
             <UpdateUser
-                url={url}
+                urlAPI={urlAPI}
                 user={user}
                 token={token}
             />

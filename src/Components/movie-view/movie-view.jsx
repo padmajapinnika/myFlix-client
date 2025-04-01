@@ -7,7 +7,7 @@ export const MovieView = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
-  const url = "https://movie-api-padma-7528be21ca05.herokuapp.com";
+  const urlAPI = "https://movie-api-padma-7528be21ca05.herokuapp.com";
 
   useEffect(() => {
     const token = localStorage.getItem("token"); // Get the token from localStorage
@@ -17,7 +17,7 @@ export const MovieView = () => {
       return;
     }
 
-    fetch(`${url}/movies/${movieId}`, {
+    fetch(`${urlAPI}/movies/${movieId}`, {
       headers: {
         Authorization: `Bearer ${token}`, // Include token in header
       },

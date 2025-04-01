@@ -9,27 +9,25 @@ import { Col,Row } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
   const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
-  const [token, setToken] = useState(null);
-  const url = "https://movie-api-padma-7528be21ca05.herokuapp.com";
+  const [error, setError] = useState('');
+  const [token, setToken] = useState('');
+  const urlAPI = "https://movie-api-padma-7528be21ca05.herokuapp.com";
 
   useEffect(() => {
-    if (!token) {
-      return
+    if (!token || !user) {
+      return; // Don't fetch if there's no token or user
     }
-    fetch(url+ "/users", {
-      headers: { Authorization: `Bearer ${token}` }
-  })
+    fetch(urlAPI + "/users", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((response) => response.json())
       .then((data) => {
-          console.log(data);
-          let userFound = data.find(u => u._id === user._id);
-          setUser(userFound);
-
+        let userFound = data.find((u) => u._id === user._id);
+        setUser(userFound);
       });
-    fetch(url + "/movies", {
+    fetch(urlAPI + "/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
@@ -37,7 +35,8 @@ export const MainView = () => {
         setMovies(data);
       })
       .catch((err) => setError("Failed to fetch movies"));
-  }, [token]);
+  }, [token, user]);  // Depend on user and token both
+  
 
   const handleLoggedIn = (user, token) => {
     localStorage.setItem("user", JSON.stringify(user));
@@ -83,7 +82,7 @@ export const MainView = () => {
             path="/profile"
             element={user ? (
               <Col md={8}>
-                <ProfileView url={url} user={user} token={token} movies={movies} />
+                <ProfileView urlAPI={urlAPI} user={user} token={token} movies={movies} />
               </Col>
             ) : (
               <Navigate to="/login" />
@@ -92,19 +91,28 @@ export const MainView = () => {
 
           {/* Login Route */}
           <Route
-            path="/login"
-            element={
-              <>
-                {user ? (
-                  <Navigate to="/" />
-                ) : (
-                  <Col md={5}>
-                    <LoginView onLoggedIn={handleLoggedIn} />
-                  </Col>
-                )}
-              </>
-            }
-          />
+                        path="/login"
+                        element={
+                            <>
+                                {user ? (
+                                    <Navigate to="/" />
+                                ) : (
+                                    <Col md={5}>
+                                        <LoginView
+                                            urlAPI={urlAPI}
+                                            onLoggedIn={(user, token) => {
+                                                setUser(user);
+                                                console.log(user);
+                                                localStorage.setItem("user", JSON.stringify(user));
+                                                setToken(token);
+                                                localStorage.setItem("token", token);
+                                            }} />
+                                    </Col>
+                                )}
+                            </>
+
+                        }
+                    />
  
           {/* Movie Details Route */}
           <Route
@@ -140,7 +148,7 @@ export const MainView = () => {
                     {movies.map((movie) => (
                       <Col className="mb-5" key={movie._id} lg={3} md={4} sm={12}>
                         <MovieCard
-                          movie={movie}
+                          movie={movie} 
                         />
                       </Col>
                     ))}
