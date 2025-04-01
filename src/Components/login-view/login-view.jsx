@@ -4,13 +4,12 @@ import { Form, Button } from "react-bootstrap";
 export const LoginView = ({ urlAPI, onLoggedIn }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [email, setemail] = useState('');
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
             Username: username,
             Password: password,
-            email: email
         };
         console.log(data);
 
