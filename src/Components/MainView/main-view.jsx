@@ -3,8 +3,9 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { useState, useEffect } from "react";
-import Row from "react-bootstrap/Row";
-import { Col } from "react-bootstrap";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
+import ProfileView from "../profile-view/profile-view";
+import { Col,Row } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
@@ -16,8 +17,18 @@ export const MainView = () => {
 
   useEffect(() => {
     if (!token) {
-      return;
+      return
     }
+    fetch(url+ "/users", {
+      headers: { Authorization: `Bearer ${token}` }
+  })
+      .then((response) => response.json())
+      .then((data) => {
+          console.log(data);
+          let userFound = data.find(u => u._id === user._id);
+          setUser(userFound);
+
+      });
     fetch(url + "/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -48,9 +59,11 @@ export const MainView = () => {
 
   return (
     <BrowserRouter>
+     <NavigationBar user={user} onLoggedOut={handleLogout} /> 
       <Row className="justify-content-md-center">
         <Routes>
           {/* Signup Route */}
+         
           <Route
             path="/signup"
             element={
@@ -64,6 +77,17 @@ export const MainView = () => {
                 )}
               </>
             }
+          />
+           {/* Profile Route */}
+           <Route
+            path="/profile"
+            element={user ? (
+              <Col md={8}>
+                <ProfileView url={url} user={user} token={token} movies={movies} />
+              </Col>
+            ) : (
+              <Navigate to="/login" />
+            )}
           />
 
           {/* Login Route */}
@@ -81,7 +105,7 @@ export const MainView = () => {
               </>
             }
           />
-
+ 
           {/* Movie Details Route */}
           <Route
             path="/movies/:movieId"
