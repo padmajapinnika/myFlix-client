@@ -32823,32 +32823,36 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
-const LoginView = ({ urlAPI, onLoggedIn })=>{
+const LoginView = ({ onLoggedIn })=>{
     _s();
-    const [username, setUsername] = (0, _react.useState)('');
-    const [password, setPassword] = (0, _react.useState)('');
-    const handleSubmit = (event)=>{
-        event.preventDefault();
+    const url = "https://movie-api-padma-7528be21ca05.herokuapp.com";
+    const [username, setUsername] = (0, _react.useState)("");
+    const [password, setPassword] = (0, _react.useState)("");
+    const handleSubmit = (e)=>{
+        e.preventDefault();
         const data = {
             Username: username,
-            Password: password
+            password: password
         };
         console.log(data);
-        fetch(urlAPI + "/login", {
+        fetch(url + "/login", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             body: JSON.stringify(data)
         }).then((response)=>response.json()).then((data)=>{
-            console.log(data.user);
-            if (data.user) onLoggedIn(data.user, data.token);
-            else alert("No such user");
-        }).catch((e)=>{
-            alert("Something went wrong");
-        });
+            // Check if user and token exist in response
+            if (data.user) {
+                // Store user and token in localStorage for persistence
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("token", data.token);
+                onLoggedIn(data.user, data.token); // Pass user and token to MainView
+            } else alert("Login failed. Please check your credentials.");
+        }).catch((error)=>alert("Something went wrong. Please try again."));
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         onSubmit: handleSubmit,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -32858,25 +32862,25 @@ const LoginView = ({ urlAPI, onLoggedIn })=>{
                         children: "Username:"
                     }, void 0, false, {
                         fileName: "src/Components/login-view/login-view.jsx",
-                        lineNumber: 39,
-                        columnNumber: 17
+                        lineNumber: 41,
+                        columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                         type: "text",
                         value: username,
                         onChange: (e)=>setUsername(e.target.value),
-                        minlength: "8",
+                        minLength: "5",
                         required: true
                     }, void 0, false, {
                         fileName: "src/Components/login-view/login-view.jsx",
-                        lineNumber: 42,
-                        columnNumber: 17
+                        lineNumber: 44,
+                        columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/login-view/login-view.jsx",
-                lineNumber: 38,
-                columnNumber: 13
+                lineNumber: 40,
+                columnNumber: 12
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                 controlId: "formPassword",
@@ -32885,43 +32889,43 @@ const LoginView = ({ urlAPI, onLoggedIn })=>{
                         children: "Password:"
                     }, void 0, false, {
                         fileName: "src/Components/login-view/login-view.jsx",
-                        lineNumber: 51,
-                        columnNumber: 17
+                        lineNumber: 53,
+                        columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                         type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value),
-                        minlength: "8",
+                        minLength: "5",
                         required: true
                     }, void 0, false, {
                         fileName: "src/Components/login-view/login-view.jsx",
-                        lineNumber: 54,
-                        columnNumber: 17
+                        lineNumber: 56,
+                        columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/login-view/login-view.jsx",
-                lineNumber: 50,
+                lineNumber: 52,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 variant: "primary",
                 type: "submit",
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/Components/login-view/login-view.jsx",
-                lineNumber: 62,
-                columnNumber: 13
+                lineNumber: 64,
+                columnNumber: 11
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/login-view/login-view.jsx",
-        lineNumber: 37,
+        lineNumber: 39,
         columnNumber: 9
     }, undefined);
 };
-_s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
+_s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
 _c = LoginView;
 var _c;
 $RefreshReg$(_c, "LoginView");
