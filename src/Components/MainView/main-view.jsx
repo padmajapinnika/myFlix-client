@@ -77,6 +77,8 @@ export const MainView = () => {
               </>
             }
           />
+                   
+ 
            {/* Profile Route */}
            <Route
             path="/profile"
@@ -88,32 +90,12 @@ export const MainView = () => {
               <Navigate to="/login" />
             )}
           />
+           {/* Login */}
+           <Route path="/login" element={user ? (<Navigate to="/" />) : (<Col>
+                    <LoginView onLoggedIn={handleLoggedIn} /></Col>)}
+                />
 
-          {/* Login Route */}
-          <Route
-                        path="/login"
-                        element={
-                            <>
-                                {user ? (
-                                    <Navigate to="/" />
-                                ) : (
-                                    <Col md={5}>
-                                        <LoginView
-                                            urlAPI={urlAPI}
-                                            onLoggedIn={(user, token) => {
-                                                setUser(user);
-                                                console.log(user);
-                                                localStorage.setItem("user", JSON.stringify(user));
-                                                setToken(token);
-                                                localStorage.setItem("token", token);
-                                            }} />
-                                    </Col>
-                                )}
-                            </>
-
-                        }
-                    />
- 
+         
           {/* Movie Details Route */}
           <Route
             path="/movies/:movieId"

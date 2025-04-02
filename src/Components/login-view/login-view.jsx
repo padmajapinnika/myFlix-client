@@ -15,13 +15,13 @@ export const LoginView = ({ onLoggedIn }) => {
           fetch(url + "/login", {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json"
+              "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
           })
           .then((response) => response.json())
           .then((data) => {
+            console.log("Login response: ", data)
               // Check if user and token exist in response
               if (data.user) {
               // Store user and token in localStorage for persistence

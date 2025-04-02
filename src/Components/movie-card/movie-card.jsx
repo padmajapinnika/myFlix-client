@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 export const MovieCard = ({ urlAPI, user, token, movie }) => {
 
- 
-  
   const favouriteFlag = user?.favorite?.find((m) => m === movie._id);
 
   if (!user) {
