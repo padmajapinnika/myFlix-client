@@ -3,7 +3,7 @@ import UserInfo from './user-info';
 import FavoriteMovies from './favourite-movies';
 import UpdateUser from './update-user';
 
-const ProfileView = ({ urlAPI, user, token, movies }) => {
+const ProfileView = ({ urlAPI, user, token, movies ,setUser}) => {
     
     return (
         <>
@@ -21,6 +21,7 @@ const ProfileView = ({ urlAPI, user, token, movies }) => {
                 urlAPI={urlAPI}
                 user={user}
                 token={token}
+                setUser={setUser}
             />
 
         </>

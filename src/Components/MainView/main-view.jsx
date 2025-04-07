@@ -37,7 +37,7 @@ if (!storedUser) return;
         setMovies(data);
       })
       .catch((err) => setError("Failed to fetch movies"));
-  }, [token, user]);  // Depend on user and token both
+  }, [token]);  // Depend on token
   
 
   const handleLoggedIn = (user, token) => {
@@ -96,6 +96,7 @@ if (!storedUser) return;
                                             user={user}
                                             token={token}
                                             movies={movies}
+                                            setUser={setUser}
                                         />
                                     </Col>
                                 )}
@@ -169,6 +170,7 @@ if (!storedUser) return;
                         user={user}
                         token={token}
                         urlAPI={urlAPI}
+                        setUser={setUser}
                       />
 
                       </Col>

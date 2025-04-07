@@ -6,7 +6,7 @@ const FavoriteMovies = ({ urlAPI, user, token, movies }) => {
 
     console.log(user.favorite);
     console.log(movies);
-    let favoriteMovies = user.favoriteMovies ? movies.filter(m => user.favoriteMovies.includes(m._id)) : [];
+    let favoriteMovies = user.FavoriteMovies ? movies.filter(m => user.FavoriteMovies.includes(m._id)) : [];
 
     return (
         <>
