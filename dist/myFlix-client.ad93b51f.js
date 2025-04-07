@@ -33357,16 +33357,23 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
 const FavoriteMovies = ({ urlAPI, user, token, movies })=>{
-    console.log(user.favorite);
+    console.log(user.favoriteMovies);
     console.log(movies);
-    let favoriteMovies = user.FavoriteMovies ? movies.filter((m)=>user.FavoriteMovies.includes(m._id)) : [];
+    let favoriteMovies = user.favoriteMovies ? movies.filter((m)=>user.favoriteMovies.includes(m._id)) : [];
+    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "Please log in to manage favorites."
+    }, void 0, false, {
+        fileName: "src/Components/profile-view/favourite-movies.jsx",
+        lineNumber: 12,
+        columnNumber: 16
+    }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Your Favorite Movies"
             }, void 0, false, {
                 fileName: "src/Components/profile-view/favourite-movies.jsx",
-                lineNumber: 13,
+                lineNumber: 16,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -33375,7 +33382,7 @@ const FavoriteMovies = ({ urlAPI, user, token, movies })=>{
                     children: "You don't have any favorite movies!"
                 }, void 0, false, {
                     fileName: "src/Components/profile-view/favourite-movies.jsx",
-                    lineNumber: 16,
+                    lineNumber: 19,
                     columnNumber: 21
                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                     children: favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -33390,18 +33397,18 @@ const FavoriteMovies = ({ urlAPI, user, token, movies })=>{
                                 movie: movie
                             }, void 0, false, {
                                 fileName: "src/Components/profile-view/favourite-movies.jsx",
-                                lineNumber: 21,
+                                lineNumber: 24,
                                 columnNumber: 33
                             }, undefined)
                         }, movie._id, false, {
                             fileName: "src/Components/profile-view/favourite-movies.jsx",
-                            lineNumber: 20,
+                            lineNumber: 23,
                             columnNumber: 29
                         }, undefined))
                 }, void 0, false)
             }, void 0, false, {
                 fileName: "src/Components/profile-view/favourite-movies.jsx",
-                lineNumber: 14,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined)
         ]

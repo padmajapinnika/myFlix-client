@@ -4,10 +4,13 @@ import { MovieCard } from '../movie-card/movie-card';
 
 const FavoriteMovies = ({ urlAPI, user, token, movies }) => {
 
-    console.log(user.favorite);
+    console.log(user.favoriteMovies);
     console.log(movies);
-    let favoriteMovies = user.FavoriteMovies ? movies.filter(m => user.FavoriteMovies.includes(m._id)) : [];
-
+    let favoriteMovies = user.favoriteMovies ? movies.filter(m => user.favoriteMovies.includes(m._id)) : [];
+ 
+    if (!user) {
+        return <div>Please log in to manage favorites.</div>;
+    }
     return (
         <>
             <h2>Your Favorite Movies</h2>
