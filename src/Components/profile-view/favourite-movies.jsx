@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { MovieCard } from '../movie-card/movie-card';
 
 const FavoriteMovies = ({ urlAPI, user, token, movies }) => {
 
     console.log(user.favorite);
     console.log(movies);
-    let favoriteMovies = user.favorite ? movies.filter(m => user.favorite.includes(m._id)) : [];
+    let favoriteMovies = user.favoriteMovies ? movies.filter(m => user.favoriteMovies.includes(m._id)) : [];
 
     return (
         <>
@@ -17,7 +17,7 @@ const FavoriteMovies = ({ urlAPI, user, token, movies }) => {
                 ) : (
                     <>
                         {favoriteMovies.map((movie) => (
-                            <Col className="mb-5" key={movie.id} lg={3} md={6} sm={12}>
+                            <Col className="mb-5" key={movie._id} lg={3} md={6} sm={12}>
                                 <MovieCard
                                     urlAPI={urlAPI}
                                     user={user}

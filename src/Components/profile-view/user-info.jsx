@@ -1,13 +1,10 @@
 import React from 'react';
 
 const UserInfo = ({ Username, email }) => {
-
-    console.log(Username);
-    console.log(email);
-
+    // Just render the user information without console logs
     return (
         <>
-            <p>User : {Username}</p>
+            <p>User: {Username}</p>
             <p>Email: {email}</p>
         </>
     );

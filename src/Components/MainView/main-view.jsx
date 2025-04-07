@@ -9,23 +9,25 @@ import { Col,Row } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(null);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState(null);
   const urlAPI = "https://movie-api-padma-7528be21ca05.herokuapp.com";
 
   useEffect(() => {
-    if (!token || !user) {
-      return; // Don't fetch if there's no token or user
-    }
+    if (!token) return;
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+if (!storedUser) return;
     fetch(urlAPI + "/users", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
       .then((data) => {
-        let userFound = data.find((u) => u._id === user._id);
+        const userFound = data.find((u) => u._id === storedUser._id);
+        if(userFound){
         setUser(userFound);
+        }
       });
     fetch(urlAPI + "/movies", {
       headers: { Authorization: `Bearer ${token}` },
@@ -71,7 +73,8 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <SignupView />
+                    <SignupView
+                     urlAPI={urlAPI} />
                   </Col>
                 )}
               </>
@@ -81,33 +84,68 @@ export const MainView = () => {
  
            {/* Profile Route */}
            <Route
-            path="/profile"
-            element={user ? (
-              <Col md={8}>
-                <ProfileView urlAPI={urlAPI} user={user} token={token} movies={movies} />
-              </Col>
-            ) : (
-              <Navigate to="/login" />
-            )}
-          />
-           {/* Login */}
-           <Route path="/login" element={user ? (<Navigate to="/" />) : (<Col>
-                    <LoginView onLoggedIn={handleLoggedIn} /></Col>)}
-                />
+                        path="/profile"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to="/" />
+                                ) : (
+                                    <Col md={8}>
+                                        <ProfileView
+                                            urlAPI={urlAPI}
+                                            user={user}
+                                            token={token}
+                                            movies={movies}
+                                        />
+                                    </Col>
+                                )}
+                            </>
 
+                        }
+                    />
+            <Route
+                        path="/login"
+                        element={
+                            <>
+                                {user ? (
+                                    <Navigate to="/" />
+                                ) : (
+                                    <Col md={5}>
+                                        <LoginView
+                                            urlAPI={urlAPI}
+                                            onLoggedIn={(user, token) => {
+                                                setUser(user);
+                                                console.log(user);
+                                                localStorage.setItem("user", JSON.stringify(user));
+                                                setToken(token);
+                                                localStorage.setItem("token", token);
+                                            }} />
+                                    </Col>
+                                )}
+                            </>
+
+                        }
+                    />
          
           {/* Movie Details Route */}
           <Route
             path="/movies/:movieId"
             element={
               <>
-                {!user ? (
-                  <Navigate to="/login" />
+                
+                   {!user ? (
+                    <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                    <Col>The list is empty!</Col>
                 ) : (
-                  <Col md={8}>
-                    <MovieView
-                    />
-                  </Col>
+                    <Col md={8}>
+                        <MovieView
+                            urlAPI={urlAPI}
+                            user={user}
+                            token={token}
+                            movies={movies} />
+                    </Col>
+                                   
                 )}
               </>
             }
@@ -119,19 +157,20 @@ export const MainView = () => {
             element={
               <>
                 {!user ? (
-                  <Navigate to="/login" />
+                  <Navigate to="/login" replace/>
                 ) : movies.length === 0 ? (
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    <Col sm={12}>
-                      <h2>Movie List</h2>
-                    </Col>
                     {movies.map((movie) => (
                       <Col className="mb-5" key={movie._id} lg={3} md={4} sm={12}>
                         <MovieCard
-                          movie={movie} 
-                        />
+                        movie={movie}
+                        user={user}
+                        token={token}
+                        urlAPI={urlAPI}
+                      />
+
                       </Col>
                     ))}
                   </>

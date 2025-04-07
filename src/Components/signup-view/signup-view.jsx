@@ -4,10 +4,10 @@ import { Form, Button } from "react-bootstrap";
 export const SignupView = () => {
     //const urlAPI = "http://localhost:8080";
     const urlAPI = "https://movie-api-padma-7528be21ca05.herokuapp.com";
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [birthday, setBirthday] = useState('');
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [birthday, setBirthday] = useState("");
 
 
     const handleSubmit = (event) => {
@@ -57,7 +57,6 @@ export const SignupView = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
             />
-           
             <Form.Label>
                 Email:
             </Form.Label>

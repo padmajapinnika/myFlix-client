@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form,Button } from "react-bootstrap";
+
 export const LoginView = ({ onLoggedIn }) => {
   const url="https://movie-api-padma-7528be21ca05.herokuapp.com";
   const [username, setUsername] = useState("");
@@ -11,6 +12,7 @@ export const LoginView = ({ onLoggedIn }) => {
           password: password,
           };
           console.log(data);
+         
        
           fetch(url + "/login", {
             method: "POST",

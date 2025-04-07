@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export const MovieCard = ({ urlAPI, user, token, movie }) => {
 
-  const favouriteFlag = user?.favorite?.find((m) => m === movie._id);
-
+  //const favouriteFlag = user?.favorite?.find((m) => m === movie._id);
+  const favouriteFlag = user?.favoriteMovies?.includes(movie._id);
   if (!user) {
     return <div>Please log in to manage favorites.</div>;
   }
@@ -18,59 +18,54 @@ export const MovieCard = ({ urlAPI, user, token, movie }) => {
         </Card.Body>
         <Card.Footer>
         {favouriteFlag ?
-                    (
-                        <Button variant="secondary" type="button" onClick={() => {
-                            fetch(urlAPI + "/users/" + user.userName + "/favorite/" + movie._id, {
-                                method: "DELETE",
-                                headers: {
-                                    Authorization: `Bearer ${token}`,
-                                },
-                            }).then((response) => {
-                                if (response.ok) {
-                                    // var index = user.favorite.indexOf(movie._id)
-                                    // if (index !== -1) {
-                                    //     user.favorite.splice(index);
-                                    // }
-                                    // localStorage.setItem("user", JSON.stringify(user));
-                                    window.location.reload();  // Optionally reload the page  
+           (
+            <Button variant="secondary" type="button" onClick={() => {
+                fetch(urlAPI + "/users/" + user.Username + "/movies/" + movie._id, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }).then((response) => {
+                    if (response.ok) {
+                        
+                        window.location.reload();  // Optionally reload the page  
 
-                                } else {
-                                    alert("Udpate failed");
-                                }
-                            });
-                        }}>Remove from Favourites</Button>
-                    ) :
-                    (
-                        <Button variant="primary" type="button" onClick={() => {
-                            fetch(urlAPI + "/users/" + user.userName + "/favorite/" + movie._id, {
-                                method: "PUT",
-                                headers: {
-                                    Authorization: `Bearer ${token}`,
-                                },
-                            }).then((response) => {
-                                if (response.ok) {
-                                    // user.favorite.push(movie._id);
-                                    // localStorage.setItem("user", JSON.stringify(user));
-                                    window.location.reload();  // Optionally reload the page                                    
-                                } else {
-                                    alert("Udpate failed");
-                                }
-                            });
-                        }}>Add to Favourites</Button>
-                    )
-                }
+                    } else {
+                        alert("Udpate failed");
+                    }
+                });
+            }}>Remove from Favourites</Button>
+        ) :
+        (
+            <Button variant="primary" type="button" onClick={() => {
+                fetch(urlAPI + "/users/" + user.Username + "/movies/" + movie._id, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                }).then((response) => {
+                    if (response.ok) {
+                        window.location.reload();  // Optionally reload the page                                    
+                    } else {
+                        alert("Udpate failed");
+                    }
+                });
+            }}>Add to Favourites</Button>
+        )
+    }
 
-                <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
-                    <Button variant="link">more...</Button>
-                </Link>
-            </Card.Footer>
-        </Card>
-    );
+    <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+        <Button variant="link">more...</Button>
+    </Link>
+</Card.Footer>
+</Card>
+);
 };
 
 MovieCard.propTypes = {
-    movie: PropTypes.shape({
-        title: PropTypes.string
-    }).isRequired,
-    //onMovieClick: PropTypes.func.isRequired
-};
+movie: PropTypes.shape({
+title: PropTypes.string
+}).isRequired,
+//onMovieClick: PropTypes.func.isRequired
+};         

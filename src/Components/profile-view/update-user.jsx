@@ -10,9 +10,10 @@ const UpdateUser = ({ urlAPI, user, token }) => {
     const [username, setUsername] = useState(user?.Username||"");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(user?.email|| "");
-    const [birthday, setBirthday] = useState(
-        user.birthDate ? new Date(user.birthDate).toISOString().split('T')[0] : ""
-      );
+    const [Birthday, setBirthday] = useState(
+        user?.Birthday ? new Date(user.Birthday).toISOString().split('T')[0] : ""
+    );
+      
       
 
     const handleSubmit = (event) => {
@@ -23,7 +24,7 @@ const UpdateUser = ({ urlAPI, user, token }) => {
             Username: username || user.Username,
             password: password,
             email: email,
-            Birthday: birthday
+            Birthday: Birthday
         };
 
         console.log(data);
@@ -85,7 +86,7 @@ const UpdateUser = ({ urlAPI, user, token }) => {
                 </Form.Label>
                 <Form.Control
                     type="date"
-                    value={birthday}
+                    value={Birthday}
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                 />

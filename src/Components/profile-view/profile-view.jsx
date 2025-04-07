@@ -4,7 +4,7 @@ import FavoriteMovies from './favourite-movies';
 import UpdateUser from './update-user';
 
 const ProfileView = ({ urlAPI, user, token, movies }) => {
-
+    
     return (
         <>
             <UserInfo
