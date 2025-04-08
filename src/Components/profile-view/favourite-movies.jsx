@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col } from "react-bootstrap";
 import { MovieCard } from '../movie-card/movie-card';
 
-const FavoriteMovies = ({ urlAPI, user, token, movies }) => {
+const FavoriteMovies = ({ urlAPI, user, token, movies ,setUser}) => {
 
     console.log(user.favoriteMovies);
     console.log(movies);
@@ -24,6 +24,7 @@ const FavoriteMovies = ({ urlAPI, user, token, movies }) => {
                                 <MovieCard
                                     urlAPI={urlAPI}
                                     user={user}
+                                    setUser={setUser}
                                     token={token}
                                     movie={movie}
                                 />

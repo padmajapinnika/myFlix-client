@@ -33261,6 +33261,7 @@ const ProfileView = ({ urlAPI, user, token, movies, setUser })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favouriteMoviesDefault.default), {
                 urlAPI: urlAPI,
                 user: user,
+                setUser: setUser,
                 token: token,
                 movies: movies
             }, void 0, false, {
@@ -33275,7 +33276,7 @@ const ProfileView = ({ urlAPI, user, token, movies, setUser })=>{
                 setUser: setUser
             }, void 0, false, {
                 fileName: "src/Components/profile-view/profile-view.jsx",
-                lineNumber: 20,
+                lineNumber: 21,
                 columnNumber: 13
             }, undefined)
         ]
@@ -33356,7 +33357,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
-const FavoriteMovies = ({ urlAPI, user, token, movies })=>{
+const FavoriteMovies = ({ urlAPI, user, token, movies, setUser })=>{
     console.log(user.favoriteMovies);
     console.log(movies);
     let favoriteMovies = user.favoriteMovies ? movies.filter((m)=>user.favoriteMovies.includes(m._id)) : [];
@@ -33393,6 +33394,7 @@ const FavoriteMovies = ({ urlAPI, user, token, movies })=>{
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 urlAPI: urlAPI,
                                 user: user,
+                                setUser: setUser,
                                 token: token,
                                 movie: movie
                             }, void 0, false, {
@@ -33616,6 +33618,6 @@ $RefreshReg$(_c, "UpdateUser");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"avINa","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8qqJ1","react-bootstrap":"ctEhb"}]},["7ndWC","gYcKb"], "gYcKb", "parcelRequireaec4", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-bootstrap":"ctEhb","@parcel/transformer-js/src/esmodule-helpers.js":"avINa","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8qqJ1"}]},["7ndWC","gYcKb"], "gYcKb", "parcelRequireaec4", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=myFlix-client.ad93b51f.js.map

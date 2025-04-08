@@ -14,6 +14,7 @@ const ProfileView = ({ urlAPI, user, token, movies ,setUser}) => {
             <FavoriteMovies
                 urlAPI={urlAPI}
                 user={user}
+                setUser={setUser}
                 token={token}
                 movies={movies}
             />
