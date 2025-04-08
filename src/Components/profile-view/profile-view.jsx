@@ -25,6 +25,7 @@ const ProfileView = ({ urlAPI, user, token, movies ,setUser}) => {
                 setUser={setUser}
             />
 
+
         </>
     );
 };

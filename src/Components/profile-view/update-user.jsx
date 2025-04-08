@@ -18,7 +18,8 @@ const UpdateUser = ({ urlAPI, user, token, setUser }) => {
             Birthday: birthday,
             email:email
         };
-        
+
+
 
 
         fetch(`${urlAPI}/users/${user.Username}`, {

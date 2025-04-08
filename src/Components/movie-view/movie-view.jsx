@@ -44,7 +44,6 @@ export const MovieView = () => {
       <p><strong>Bio:</strong> {movie.director.bio}</p>
       <p><strong>Genre:</strong> {movie.genre.name || "Not Available"}</p>
       <p><strong>Release Year:</strong> {movie.releaseYear || "Not Available"}</p>
-      <p><strong>Featured:</strong> {movie.featured}</p>
       <Link to="/" className="back-button">
         Back to Movie List
       </Link>
