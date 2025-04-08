@@ -49,7 +49,7 @@ Hosting: Deployed on Netlify/Heroku.
 📦 Installation
 
 1.Clone the repo:
-git clone https://github.com/your-username/myflix-client.git
+git clone https://github.com/padmajapinnika/myflix-client.git
 cd myflix-client
 2.Install dependencies:
 npm install
