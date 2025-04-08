@@ -186,7 +186,7 @@ export const MainView = () => {
                   <input
                       type="text"
                       className="form-control my-3"
-                      placeholder="Search movies by title..."
+                      placeholder="🔎Search movies by title..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />

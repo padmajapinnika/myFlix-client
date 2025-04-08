@@ -16372,7 +16372,7 @@ const MainView = ()=>{
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                             type: "text",
                                             className: "form-control my-3",
-                                            placeholder: "Search movies by title...",
+                                            placeholder: "\uD83D\uDD0ESearch movies by title...",
                                             value: searchQuery,
                                             onChange: (e)=>setSearchQuery(e.target.value)
                                         }, void 0, false, {
@@ -33129,7 +33129,8 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 const NavigationBar = ({ user, onLoggedOut })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
-        bg: "light",
+        bg: "primary",
+        variant: "light",
         expand: "lg",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
             children: [
