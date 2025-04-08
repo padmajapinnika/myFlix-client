@@ -12,7 +12,7 @@ Single Movie View: Provides detailed movie information (genre, director, descrip
 
 User Authentication: Login and signup functionality with secure token storage.
 
-Profile View:
+--Profile View:
 
 View and update user details (username, email, birthday, password).
 
@@ -40,7 +40,7 @@ Actor View
 🛠️ Built With
 Frontend: React, React Router, Bootstrap, Parcel
 
-Backend: myFlix API
+Backend: movie_api
 
 Languages: JavaScript (ES6+), HTML5, CSS3
 
@@ -60,6 +60,7 @@ npm start
 To build for production:
 npm run build
 To deploy, connect your repo to platforms like Netlify or Vercel. Make sure environment variables (if any) are configured appropriately.
+
 👩‍💻 Author
 Padmaja
 LinkedIn | GitHub
