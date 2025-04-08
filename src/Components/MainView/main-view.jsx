@@ -13,12 +13,15 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
   const [token, setToken] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const urlAPI = "https://movie-api-padma-7528be21ca05.herokuapp.com";
 
   useEffect(() => {
     if (!token) return;
     const storedUser = JSON.parse(localStorage.getItem('user'));
-if (!storedUser) return;
+    if (!storedUser) return;
+
     fetch(urlAPI + "/users", {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -29,15 +32,28 @@ if (!storedUser) return;
         setUser(userFound);
         }
       });
+
     fetch(urlAPI + "/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
       .then((data) => {
         setMovies(data);
+        setFilteredMovies(data); 
       })
       .catch((err) => setError("Failed to fetch movies"));
   }, [token]);  // Depend on token
+   // Handle movie search
+   useEffect(() => {
+    if (!searchQuery) {
+      setFilteredMovies(movies); // If search query is empty, show all movies
+    } else {
+      const filtered = movies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredMovies(filtered);
+    }
+  }, [searchQuery, movies]);
   
 
   const handleLoggedIn = (user, token) => {
@@ -105,28 +121,30 @@ if (!storedUser) return;
                         }
                     />
             <Route
-                        path="/login"
-                        element={
-                            <>
-                                {user ? (
-                                    <Navigate to="/" />
-                                ) : (
-                                    <Col md={5}>
-                                        <LoginView
-                                            urlAPI={urlAPI}
-                                            onLoggedIn={(user, token) => {
-                                                setUser(user);
-                                                console.log(user);
-                                                localStorage.setItem("user", JSON.stringify(user));
-                                                setToken(token);
-                                                localStorage.setItem("token", token);
-                                            }} />
-                                    </Col>
-                                )}
-                            </>
+             path="/login"
+             element={
+              <>
+                     {user ? (
+                         <Navigate to="/" />
+                     ) : (
+                         <Col md={5}>
+                             <LoginView
+                                 urlAPI={urlAPI}
+                                 onLoggedIn={(user, token) => {
+                                     setUser(user);
+                                     console.log(user);
+                                     localStorage.setItem("user", JSON.stringify(user));
+                                     setToken(token);
+                                     localStorage.setItem("token", token);
+                                 }} />
+                         </Col>
+                     )}
+                 </>
 
-                        }
-                    />
+             }
+         />
+                 
+                       
          
           {/* Movie Details Route */}
           <Route
@@ -162,8 +180,17 @@ if (!storedUser) return;
                 ) : movies.length === 0 ? (
                   <Col>The list is empty!</Col>
                 ) : (
+
                   <>
-                    {movies.map((movie) => (
+                  {/* Search Input for Filtering */}
+                  <input
+                      type="text"
+                      className="form-control my-3"
+                      placeholder="🔎Search movies by title..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    {filteredMovies.map((movie) => (
                       <Col className="mb-5" key={movie._id} lg={3} md={4} sm={12}>
                         <MovieCard
                         movie={movie}
