@@ -33452,8 +33452,8 @@ const UpdateUser = ({ urlAPI, user, token, setUser })=>{
         const updatedData = {
             Username: username,
             password: password,
-            email: email,
-            Birthday: birthday
+            Birthday: birthday,
+            email: email
         };
         fetch(`${urlAPI}/users/${user.Username}`, {
             method: "PUT",
@@ -33495,7 +33495,7 @@ const UpdateUser = ({ urlAPI, user, token, setUser })=>{
                 children: "Username:"
             }, void 0, false, {
                 fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 67,
+                lineNumber: 69,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -33506,31 +33506,14 @@ const UpdateUser = ({ urlAPI, user, token, setUser })=>{
                 minLength: "3"
             }, void 0, false, {
                 fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 68,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                children: "Password:"
-            }, void 0, false, {
-                fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 76,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                type: "password",
-                value: password,
-                onChange: (e)=>setPassword(e.target.value),
-                required: true
-            }, void 0, false, {
-                fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 77,
+                lineNumber: 70,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                 children: "Email:"
             }, void 0, false, {
                 fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 84,
+                lineNumber: 78,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -33540,14 +33523,32 @@ const UpdateUser = ({ urlAPI, user, token, setUser })=>{
                 required: true
             }, void 0, false, {
                 fileName: "src/Components/profile-view/update-user.jsx",
+                lineNumber: 79,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                children: "Password:"
+            }, void 0, false, {
+                fileName: "src/Components/profile-view/update-user.jsx",
                 lineNumber: 85,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                type: "password",
+                value: password,
+                onChange: (e)=>setPassword(e.target.value),
+                placeholder: "Enter password",
+                required: true
+            }, void 0, false, {
+                fileName: "src/Components/profile-view/update-user.jsx",
+                lineNumber: 86,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                 children: "Birthday:"
             }, void 0, false, {
                 fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 92,
+                lineNumber: 96,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -33557,7 +33558,7 @@ const UpdateUser = ({ urlAPI, user, token, setUser })=>{
                 required: true
             }, void 0, false, {
                 fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 93,
+                lineNumber: 97,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -33570,12 +33571,12 @@ const UpdateUser = ({ urlAPI, user, token, setUser })=>{
                             children: "Update Profile"
                         }, void 0, false, {
                             fileName: "src/Components/profile-view/update-user.jsx",
-                            lineNumber: 102,
+                            lineNumber: 106,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/profile-view/update-user.jsx",
-                        lineNumber: 101,
+                        lineNumber: 105,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -33586,24 +33587,24 @@ const UpdateUser = ({ urlAPI, user, token, setUser })=>{
                             children: "Delete Account"
                         }, void 0, false, {
                             fileName: "src/Components/profile-view/update-user.jsx",
-                            lineNumber: 105,
+                            lineNumber: 109,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/profile-view/update-user.jsx",
-                        lineNumber: 104,
+                        lineNumber: 108,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/profile-view/update-user.jsx",
-                lineNumber: 100,
+                lineNumber: 104,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/profile-view/update-user.jsx",
-        lineNumber: 66,
+        lineNumber: 68,
         columnNumber: 9
     }, undefined);
 };

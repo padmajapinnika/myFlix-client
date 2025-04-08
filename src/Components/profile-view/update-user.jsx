@@ -15,9 +15,11 @@ const UpdateUser = ({ urlAPI, user, token, setUser }) => {
         const updatedData = {
             Username: username,
             password:password,
-            email:email,
-            Birthday: birthday
+            Birthday: birthday,
+            email:email
         };
+        
+
 
         fetch(`${urlAPI}/users/${user.Username}`, {
             method: "PUT",
@@ -73,14 +75,6 @@ const UpdateUser = ({ urlAPI, user, token, setUser }) => {
                 minLength="3"
             />
 
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-            />
-
             <Form.Label>Email:</Form.Label>
             <Form.Control
                 type="email"
@@ -88,6 +82,16 @@ const UpdateUser = ({ urlAPI, user, token, setUser }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
             />
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+            required
+          />
+  
+
 
             <Form.Label>Birthday:</Form.Label>
             <Form.Control
