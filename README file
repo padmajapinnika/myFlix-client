@@ -1,70 +1,75 @@
-# MyFlix Client
+<!DOCTYPE html>
+<html lang="en">
 
-This repository contains the front-end client for the **MyFlix** application. It is a web application that allows users to browse movies, manage their profiles, and maintain a list of their favorite films. The app is built using modern web technologies, including **React** and **Parcel** for fast development and bundling.
+<body>
 
----
+  <h1>🎬 myFlix Client</h1>
 
-## Table of Contents
+  <p>The <strong>myFlix React application</strong> is the client-side of a full-stack movie web app built with the MERN stack (MongoDB, Express, React, Node.js). This app allows users to browse, search, and manage information about movies, as well as maintain a profile with favorite movie selections.</p>
 
-- [Project Overview](#project-overview)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [How to Run the Project](#how-to-run-the-project)
-- [Testing the App](#testing-the-app)
-- [Updating the README](#updating-the-readme)
-- [Development and Contributions](#development-and-contributions)
-- [License](#license)
+  <h2>🌟 Features</h2>
+  <h3>✅ Essential Features</h3>
+  <ul>
+    <li><strong>Main View:</strong> Displays all movies with title, image, and description.</li>
+    <li><strong>Search Filter:</strong> Allows users to filter movies by title.</li>
+    <li><strong>Single Movie View:</strong> Provides detailed movie information (genre, director, description, image).</li>
+    <li><strong>User Authentication:</strong> Login and signup functionality with secure token storage.</li>
+  </ul>
 
----
+  <h4>--Profile View--</h4>
+  <ul>
+    <li>View and update user details (username, email, birthday, password).</li>
+    <li>View and remove favorite movies.</li>
+    <li>Option to deregister account.</li>
+  </ul>
 
-## Project Overview
+  <ul>
+    <li><strong>Favorites:</strong> Users can add or remove favorite movies from their profile.</li>
+    <li><strong>Navigation Bar:</strong> Easy navigation between login, signup, main view, and profile.</li>
+    <li><strong>Responsive Design:</strong> Fully responsive and styled using Bootstrap.</li>
+  </ul>
 
-The **MyFlix Client** serves as the front-end of the **MyFlix** application. It provides an intuitive user interface that allows users to:
+  <h3>✨ Optional Features (can be implemented in future)</h3>
+  <ul>
+    <li>Genre View</li>
+    <li>Director View</li>
+    <li>Related/Recommended Movies</li>
+    <li>Actor View</li>
+    <li>“To Watch” movie list</li>
+  </ul>
 
-- View a catalog of movies.
-- Register and log into their accounts.
-- Add or remove movies from their list of favorites.
-- Update user profile information.
+  <h2>🛠️ Built With</h2>
+  <ul>
+    <li><strong>Frontend:</strong> React, React Router, Bootstrap, Parcel</li>
+    <li><strong>Backend:</strong> <span class="highlight">movie_api</span></li>
+    <li><strong>Languages:</strong> JavaScript (ES6+), HTML5, CSS3</li>
+    <li><strong>Hosting:</strong> Deployed on Netlify/Heroku.</li>
+  </ul>
 
----
+  <h2>📦 Installation</h2>
+  <ol>
+    <li><strong>Clone the repo:</strong>
+      <pre><code>git clone https://github.com/padmajapinnika/myflix-client.git</code></pre>
+    </li>
+    <li><strong>Navigate to the project directory:</strong>
+      <pre><code>cd myflix-client</code></pre>
+    </li>
+    <li><strong>Install dependencies:</strong>
+      <pre><code>npm install</code></pre>
+    </li>
+    <li><strong>Run the app locally:</strong>
+      <pre><code>npm start</code></pre>
+    </li>
+  </ol>
 
-## Technologies Used
+  <h2>🚀 Deployment</h2>
+  <p>To build for production:</p>
+  <pre><code>npm run build</code></pre>
+  <p>To deploy, connect your repo to platforms like Netlify or Vercel. Make sure environment variables (if any) are configured appropriately.</p>
 
-- **React** – For building dynamic and reusable UI components.
-- **Parcel** – A fast web bundler for compiling the project efficiently.
-- **Node.js** – A runtime environment for executing JavaScript.
-- **Express** – A web framework for handling API requests on the backend.
-- **Bootstrap** – A front-end framework for responsive design.
-- **React Router** – For handling navigation between different views.
-- **React Hooks** – For state management and lifecycle handling.
+  <h2>👩‍💻 Author</h2>
+  <p>Padmaja</p>
+  <p><a href="https://github.com/padmajapinnika" target="_blank">GitHub</a></p>
 
----
-
-## Installation
-
-Follow these steps to set up the **MyFlix Client** on your local machine:
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/your-username/myFlix-client.git
-
-Navigate to the Project Directory
-cd myFlix-client
-Install Dependencies
-npm install
-
-How to Run the Project
-To start the development server, follow these steps:
-1.Ensure that the repository is properly configured and dependencies are installed.
-2.Run the following command:
-parcel src/index.html
-3.Open the provided local URL (e.g., http://localhost:1234) in your browser to see the application in action.
-
-Testing the App
-To test the project:
-1.Make sure the Parcel bundler is installed.
-2.Run the app using:
-parcel src/index.html
-3.Verify that all views and features load correctly.
-```
+</body>
+</html>
